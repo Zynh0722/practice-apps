@@ -3,6 +3,6 @@ let testData = require('./testData.json');
 
 Entry.insertMany(testData.map(entry => new Entry(entry)))
   .then(res => console.log(res))
-  .catch(err => console.error(err));
+  .catch(err => console.error(err))
+  .then(() => mongoose.connection.close());
 
-mongoose.connection.close();
