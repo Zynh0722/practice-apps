@@ -1,16 +1,20 @@
-let {saveEntry, updateEntry} = require('./databaseHandler.js');
+let { saveEntry, updateEntry, getEntries } = require('./databaseHandler.js');
 
 module.exports.get = (req, res) => {
-  res.send('You\'ve been getted');
+  getEntries(req.query)
+    .then(result => res.send(result));
 };
 
 module.exports.post = (req, res) => {
-  let { word, definition } = req.body;
-  saveEntry(word, definition)
-    .then(result => res.send(result))
-    .catch(err => res.send(err));
+  saveEntry(req.body)
+    .then(entries => entries)
+    .catch(err => err)
+    .then(result => res.send(result));
 };
 
 module.exports.put = (req, res) => {
-  res.send(`You've been putted on ${req.params.entry}`);
+  updateEntry(req.params.entry, req.body)
+    .then(entries => entries)
+    .catch(err => err)
+    .then(result => res.send(result));
 };
