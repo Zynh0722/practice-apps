@@ -15,6 +15,7 @@ let entrySchema = mongoose.Schema({
 let Entry = mongoose.model('Entry', entrySchema);
 
 module.exports.Entry = Entry;
+module.exports.mongoose = mongoose;
 
 // 1. Use mongoose to establish a connection to MongoDB
 // 2. Set up any schema and models needed by the app
