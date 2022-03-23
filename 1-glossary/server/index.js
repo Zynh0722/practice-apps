@@ -23,5 +23,7 @@ app.post('/entries', routes.post);
 
 app.put('/entries/:entry', routes.put);
 
+app.delete('/entries/:entry', routes.delete);
+
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

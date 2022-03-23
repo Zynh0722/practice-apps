@@ -1,4 +1,4 @@
-let { saveEntry, updateEntry, getEntries } = require('./databaseHandler.js');
+let { saveEntry, updateEntry, getEntries, deleteEntry } = require('./databaseHandler.js');
 
 module.exports.get = (req, res) => {
   getEntries(req.query)
@@ -18,3 +18,10 @@ module.exports.put = (req, res) => {
     .catch(err => err)
     .then(result => res.send(result));
 };
+
+module.exports.delete = (req, res) => {
+  deleteEntry(req.params.entry)
+  .then(entries => entries)
+  .catch(err => err)
+  .then(result => res.send(result));
+}
