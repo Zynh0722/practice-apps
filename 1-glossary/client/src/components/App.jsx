@@ -7,6 +7,7 @@ import axios from 'axios';
 import EntryList from './EntryList.jsx';
 import EntryForm from './EntryForm.jsx';
 import EditEntryForm from './EditEntryForm.jsx';
+import Search from './Search.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,10 +15,12 @@ class App extends React.Component {
 
     this.state = {
       entries: [],
-      editingIndex: -1
+      editingIndex: -1,
+      search: ''
     }
 
     this.makeEditForm = this.makeEditForm.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
     this.editEntry = this.editEntry.bind(this);
     this.addEntry = this.addEntry.bind(this);
@@ -68,12 +71,19 @@ class App extends React.Component {
       .then(result => console.log(result));
   }
 
+  handleSearch(e) {
+    this.setState({
+      query: e.target.value
+    });
+  }
+
   render() { 
     let { entries, editingIndex } = this.state;
     return (
     <React.Fragment>
       {(editingIndex >= 0) ? <EditEntryForm submit={this.editEntry} entry={entries[editingIndex]} /> : ''}
       <EntryForm submit={this.addEntry}/>
+      <Search change={this.handleSearch}/>
       <EntryList entries={entries} fDelete={this.deleteEntry} fEdit={this.makeEditForm} />
     </React.Fragment>
   )};
