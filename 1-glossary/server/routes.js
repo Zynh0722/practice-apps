@@ -21,7 +21,7 @@ module.exports.put = (req, res) => {
 
 module.exports.delete = (req, res) => {
   deleteEntry(req.params.entry)
-  .then(entries => entries)
-  .catch(err => err)
-  .then(result => res.send(result));
+    .then(entries => entries)
+    .catch(err => err)
+    .then(result => res.send(result));
 }
