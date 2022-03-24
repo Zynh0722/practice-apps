@@ -26,6 +26,7 @@ class EditEntryForm extends React.Component {
     this.setState({
       definition: e.target.value
     });
+    e.preventDefault();
   }
 
   handleSubmit(e, cb) { 

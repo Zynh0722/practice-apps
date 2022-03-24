@@ -16,7 +16,7 @@ class App extends React.Component {
     this.state = {
       entries: [],
       editingIndex: -1,
-      search: ''
+      query: ''
     }
 
     this.makeEditForm = this.makeEditForm.bind(this);
@@ -78,13 +78,13 @@ class App extends React.Component {
   }
 
   render() { 
-    let { entries, editingIndex } = this.state;
+    let { entries, editingIndex, query } = this.state;
     return (
     <React.Fragment>
       {(editingIndex >= 0) ? <EditEntryForm submit={this.editEntry} entry={entries[editingIndex]} /> : ''}
       <EntryForm submit={this.addEntry}/>
       <Search change={this.handleSearch}/>
-      <EntryList entries={entries} fDelete={this.deleteEntry} fEdit={this.makeEditForm} />
+      <EntryList entries={entries} fDelete={this.deleteEntry} fEdit={this.makeEditForm} query={query} />
     </React.Fragment>
   )};
 }
