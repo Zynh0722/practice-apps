@@ -39,15 +39,15 @@ class EditEntryForm extends React.Component {
 
   render() { return (
     <form className="edit-entry-form" onSubmit={(e) => this.handleSubmit(e, this.props.submit)}>
-      <label>
+      <label className="input-label">
         Word:
-        <input type="text" name="name" onChange={this.handleWordChange} defaultValue={this.state.word} />
+        <input className="edit-entry-input" type="text" name="name" onChange={this.handleWordChange} defaultValue={this.state.word} />
       </label>
-      <label>
+      <label className="edit-entry-textarea">
         definition:
-        <textarea type="text" name="name" onChange={this.handleDefChange} defaultValue={this.state.definition} />
+        <textarea className="edit-entry-textarea" type="text" name="name" onChange={this.handleDefChange} defaultValue={this.state.definition} />
       </label>
-      <input type="submit" value="Submit" />
+      <input id="btn" type="submit" value="Submit" />
     </form>
   )};
 };

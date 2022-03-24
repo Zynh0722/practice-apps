@@ -43,7 +43,7 @@ class EntryForm extends React.Component {
         definition:
         <textarea type="text" name="name" onChange={this.handleDefChange} />
       </label>
-      <input type="submit" value="Submit" />
+      <input id="btn" type="submit" value="Submit" />
     </form>
   )};
 };

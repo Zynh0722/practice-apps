@@ -82,8 +82,10 @@ class App extends React.Component {
     return (
     <React.Fragment>
       {(editingIndex >= 0) ? <EditEntryForm submit={this.editEntry} entry={entries[editingIndex]} /> : ''}
-      <EntryForm submit={this.addEntry}/>
-      <Search change={this.handleSearch}/>
+      <div className='form-bar'>
+        <Search change={this.handleSearch}/>
+        <EntryForm submit={this.addEntry}/>
+      </div>
       <EntryList entries={entries} fDelete={this.deleteEntry} fEdit={this.makeEditForm} query={query} />
     </React.Fragment>
   )};

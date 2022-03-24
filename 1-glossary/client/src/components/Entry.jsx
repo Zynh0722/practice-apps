@@ -8,8 +8,8 @@ const Entry = ({ entry, fDelete, fEdit, index }) => (
       <button onClick={() => fDelete(entry._id)}> Delete </button>
     </div>
     <div className="entry-text">
-      <div>{entry.word}</div>
-      <div>{entry.definition}</div>
+      <div className="entry-name">{entry.word}</div>
+      <div className="entry-desc">{entry.definition}</div>
     </div>
   </div>
 );
