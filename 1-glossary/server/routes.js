@@ -24,4 +24,4 @@ module.exports.delete = (req, res) => {
     .then(entries => entries)
     .catch(err => err)
     .then(result => res.send(result));
-}
+};

@@ -78,7 +78,7 @@ button {
 .entry-text {
   display: flex;
   flex-direction: column;
-  padding: 10px 0 10px 0;
+  padding: 10px;
 }
 
 .entry-name {
@@ -153,6 +153,7 @@ textarea {
   background-color: rgb(223, 208, 255);
   border-radius: 5px;
   margin: 1px;  
+  resize: none;
 }
 
 button:hover {

@@ -16,7 +16,9 @@ class App extends React.Component {
     this.state = {
       entries: [],
       editingIndex: -1,
-      query: ''
+      query: '',
+      pageSize: 10,
+      page: 1
     }
 
     this.makeEditForm = this.makeEditForm.bind(this);
@@ -29,7 +31,8 @@ class App extends React.Component {
   }
 
   fetch() {
-    axios.get('/entries')
+    let { page, pageSize } = this.state;
+    axios.get('/entries', { params: { page, pageSize} })
       .then(result => this.setState({
         entries: result.data
       }));
